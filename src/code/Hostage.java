@@ -86,6 +86,7 @@ public class Hostage implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(_location, _damage, _carried);
+        return Objects.hash(_location, _carried,this.isAlive());
     }
 }
+//(_location, _damage, _carried)

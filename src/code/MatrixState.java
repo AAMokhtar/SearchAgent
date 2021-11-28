@@ -245,19 +245,20 @@ public class MatrixState implements Serializable {
     public boolean equals(Object obj) {
         MatrixState m = (MatrixState) obj;
 
-        if (!this.getGridDims().equals(m.getGridDims())) return false;
-
+        if (!this.getGridDims().equals(m.getGridDims())) return false;//no
+//
         if (!this.getNeo().equals(m.getNeo())) return false;
+//
+//        if (!this.getHostages().equals(m.getHostages())) return false;
 
-        if (!this.getHostages().equals(m.getHostages())) return false;
+        if (!this.getAgentLocs().equals(m.getAgentLocs())) return false;//no short term
 
-        if (!this.getAgentLocs().equals(m.getAgentLocs())) return false;
+        if (!this.getPadLocs().equals(m.getPadLocs())) return false;//no
 
-        if (!this.getPadLocs().equals(m.getPadLocs())) return false;
+        if (!this.getPillLocs().equals(m.getPillLocs())) return false;//no short term
 
-        if (!this.getPillLocs().equals(m.getPillLocs())) return false;
-
-        return this.getTeleBoothLoc().equals(m.getTeleBoothLoc());
+        return this.getTeleBoothLoc().equals(m.getTeleBoothLoc());//no
+//          return true;
     }
 
     /**
@@ -266,6 +267,7 @@ public class MatrixState implements Serializable {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(_gridDims, _neo, _hostages, _agentLocs, _padLocs, _pillLocs, _teleBoothLoc);
+        return Objects.hash(_gridDims,_neo,_padLocs,_agentLocs,_pillLocs,_teleBoothLoc,_hostages);
+//        (_gridDims, _neo, _hostages--, _agentLocs, _padLocs, _pillLocs, _teleBoothLoc);
     }
 }

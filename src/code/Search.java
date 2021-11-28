@@ -135,7 +135,7 @@ public class Search {
         PriorityQueue<Node<MatrixState, MatrixOperator>> Q = new PriorityQueue<>(Collections.reverseOrder());
         HashSet<MatrixState> visitedStates = new HashSet<>();
         int expandedNodes = 0;
-
+        root.setuc(true);
         Q.add(root);
         visitedStates.add(root.getState());
 
@@ -163,6 +163,7 @@ public class Search {
                 if (!visitedStates.contains(result)) {
                     Node<MatrixState, MatrixOperator> child = new Node<>(result, head, action, pathCost,
                             0, head.getDepth() + 1);
+                    child.setuc(true);
                     Q.add(child); //added to queue
                     visitedStates.add(result); // state marked as visited to avoid adding it to queue again
                 }
